@@ -1,0 +1,49 @@
+<section >
+    <div class="container" >
+        <div class="">
+            <a href="/admin/add-user" class="btn btn-success my-5">Add Users</a>
+            <a href="/logout" class="btn btn-success my-5">logout</a>
+               <form class="d-flex" method="post" action="/admin/searchusers">
+        <input class="form-control me-2" type="search" name="searchData" placeholder="Search" value="{{searchData}}" aria-label="Search">
+        <button class="btn btn-outline-success btn-sm" type="submit"> Search</button>
+      </form>
+        </div>
+        <table class="table mt-5 display" id="usersTable">
+            <thead>
+                <tr>
+                    <th scope="col">Name</th>
+                    <th scope="col">Email</th>
+                    <th scope="col">Options</th>
+                </tr>
+            </thead>
+            <tbody>
+                {{#each userdetails}}
+                <tr>
+                    <td>{{this.name}} </td>
+                    <td>{{this.email}} </td>
+                    <td>
+                        <a href="/admin/edituser/{{this._id}}" class="btn btn-primary">Edit</a>
+                        <a href="/admin/deleteuser/{{this._id}}" class="btn btn-danger"
+                            onclick="return confirm('Are you sure to delete {{this.name}}?')">Delete</a>
+                    </td>
+                </tr>
+                {{/each}}
+            </tbody>
+            <tbody>
+                {{#each matcheduser}}
+                <tr>
+                    <td>{{this.name}} </td>
+                    <td>{{this.email}} </td>
+                    <td>
+                        <a href="/admin/edituser/{{this._id}}" class="btn btn-primary">Edit</a>
+                        <a href="/admin/deleteuser/{{this._id}}" class="btn btn-danger"
+                            onclick="return confirm('Are you sure to delete {{this.name}}?')">Delete</a>
+                    </td>
+                </tr>
+                {{/each}}
+                
+            </tbody>
+        </table>
+    </div>
+
+</section>

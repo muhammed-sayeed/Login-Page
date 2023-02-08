@@ -1,0 +1,18 @@
+<section>
+  <div class=" container row">
+    <div class="ml-5 col-md-6">
+      <h2 class="text-center mt-5">Edit User</h2>
+      <h3><a href="/logout">logout</a></h3>
+      <form action="/admin/updateuser/{{matcheduser._id}}" method="post">
+        <label for="">Name</label>
+        <input type="text" name="updatename" class="form-control" value="{{matcheduser.name}}">
+
+        <label for="">Email</label>
+        <input type="text" name="email" class="form-control" value="{{matcheduser.email}}">
+
+        <button type="submit" class="btn btn-success mt-4">Submit</button>
+
+      </form>
+    </div>
+  </div>
+</section>
